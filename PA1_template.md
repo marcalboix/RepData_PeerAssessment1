@@ -38,7 +38,7 @@ dfDailyStats = ddply(dfActivityNoNA,
 ```r
 ggplot(dfDailyStats, aes(x=date, y=sumSteps)) + 
     geom_bar(stat="identity", colour = "dodgerblue4", fill = "dodgerblue4", width = 0.7) +
-    labs(title = "Total Number of Steps Taken Each Day 2012") +
+    labs(title = "Total Number of Steps Taken Each Day (yr. 2012)") +
     ylab("Total number of Steps") + 
     xlab("Date") +
     theme_bw() + 
@@ -55,7 +55,7 @@ ggplot(dfDailyStats, aes(x=date, y=sumSteps)) +
 
 ```r
 meanSteps = mean(dfDailyStats$sumSteps)
-medianSteps = round(median(dfDailyStats$sumSteps), 2)
+medianSteps = median(dfDailyStats$sumSteps)
 ```
 The mean of total number of steps taken per day is: 10766.1887  
 The median of total number of steps taken per day is: 10765  
@@ -133,7 +133,7 @@ dfDailyStats = ddply(dfNewActivity,
                )
 ggplot(dfDailyStats, aes(x=date, y=sumSteps)) + 
     geom_bar(stat="identity", colour = "dodgerblue4", fill = "steelblue", width = 0.6) +
-    labs(title = "Total Number of Steps Taken Each Day 2012") +
+    labs(title = "Total Number of Steps Taken Each Day (yr. 2012)") +
     ylab("Total number of Steps") + 
     xlab("Date") +
     theme_bw() + 
@@ -149,17 +149,17 @@ ggplot(dfDailyStats, aes(x=date, y=sumSteps)) +
 
 ```r
 newMeanSteps = mean(dfDailyStats$sumSteps)
-newMedianSteps = round(median(dfDailyStats$sumSteps), 2)
+newMedianSteps = median(dfDailyStats$sumSteps)
 ```
 The mean of total number of steps taken per day is: 10766.1887  
-The median of total number of steps taken per day is: 10766.19  
+The median of total number of steps taken per day is: 10766.1887  
 
 5. What is the impact of imputing missing data on the estimates of the total daily number of steps?  
 Calculation differences of means and medians
 
 ```r
-difMeanSteps = newMeanSteps - meanSteps
-difMedianSteps = newMedianSteps - medianSteps
+difMeanSteps = round(newMeanSteps - meanSteps, 2)
+difMedianSteps = round(newMedianSteps - medianSteps,2)
 ```
 The difference of mean is: 0 (equals)  
 The difference of median is: 1.19 (greather after fill the NA's obs.)  
